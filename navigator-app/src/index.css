@@ -111,3 +111,19 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+@keyframes quickFlash {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-quickFlash {
+  animation: quickFlash 501ms ease-in-out;
+}
