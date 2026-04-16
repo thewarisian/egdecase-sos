@@ -4,6 +4,9 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+/* SOS Feature Inputs */
+import SOSButton from './components/SOSButton'
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -114,6 +117,9 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+
+      {/* SOS Feature Blocks added here */}
+      <SOSButton />
     </>
   )
 }
