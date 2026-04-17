@@ -3,26 +3,20 @@ import SOSPanel from "./SOSPanel"
 
 function SOSButton() {
     //Click Behaviour
-    const [flash, setFlash] = useState(false)
+    const [calmScreen, setCalm] = useState(false)
 
-    const flashPanel = () => {
-        setFlash(true)
-
-        setTimeout(
-            () => {
-                setFlash(false)
-            }, 500
-        )
+    const makeScreenCalm = () => {
+        setCalm(true)
     }
 
     return (
         <>
         {/* Show Panel when clicked */}
-        <SOSPanel flash={flash}></SOSPanel>
+        <SOSPanel isCalm={calmScreen} setCalm={setCalm}></SOSPanel>
 
         {/* SOS Button Structure */}
         <button
-        onClick={flashPanel}
+        onClick={makeScreenCalm}
         className="fixed bottom-0 left-0 w-full 
                     h-16 bg-red-700 text-xl
                     text-white font-bold text-base rounded-none
