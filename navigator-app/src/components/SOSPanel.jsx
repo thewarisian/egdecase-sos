@@ -1,4 +1,5 @@
 import { X } from "lucide-react"
+import CalmCard from "./CalmCard.jsx"
 
 function SOSPanel({isCalm, setCalm}) {
     if (!isCalm) return null
@@ -6,7 +7,9 @@ function SOSPanel({isCalm, setCalm}) {
     return (
         <>
             {/* White Screen */}
-            <div className="fixed inset-0 bg-white z-50">
+            <div className="fixed inset-0 bg-white z-60
+                            flex-column p-6">
+
                 {/* X button */}
                 <button
                 onClick={() => setCalm(false)}
@@ -19,6 +22,11 @@ function SOSPanel({isCalm, setCalm}) {
                      strokeWidth={3}
                      className="text-zinc-700"></X>
                 </button>
+
+                {/* Top 3 location Calm Cards */}
+                <CalmCard />
+                <CalmCard />
+                <CalmCard />
             </div>
         </>
     )
