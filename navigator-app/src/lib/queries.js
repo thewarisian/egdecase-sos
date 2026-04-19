@@ -37,6 +37,49 @@ export async function getCalmLocations() {
 }
 
 
+// ─────────────────────────────────────────────────────────────────────────────
+// PERSON D ADDITIONS 
+// ─────────────────────────────────────────────────────────────────────────────
+
+// submitReport(data) — inserts a new sensory report into the database
+// Called by: Person A's Report.jsx — fires when the user clicks Submit
+export async function submitReport(data) {
+  const { error } = await supabase
+    .from('reports')
+    .insert([data]); // Supabase insert always takes an array — [data] not data
+
+  if (error) {
+    console.error('submitReport error:', error);
+    return { success: false };
+  }
+  return { success: true };
+}
+
+// confirmReport(reportId) — increments the confirmations counter on one report by 1
+// Called by: Person B's PinDrawer.jsx — 'Confirm Still True' button
+export async function confirmReport(reportId) {
+
+  // Step 1 — get the current confirmations value
+  const { data, error: fetchError } = await supabase
+    .from('reports')
+    .select('confirmations')
+    .eq('id', reportId)
+    .single();
+
+  if (fetchError) {
+    console.error('confirmReport fetch error:', fetchError);
+    return;
+  }
+
+  // Step 2 — write back with the value incremented by 1
+  const { error: updateError } = await supabase
+    .from('reports')
+    .update({ confirmations: (data?.confirmations || 0) + 1 })
+    .eq('id', reportId);
+
+  if (updateError) {
+    console.error('confirmReport update error:', updateError);
+  }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // PERSON C ADDITIONS — paste below getCalmLocations(). Do not edit anything above.
