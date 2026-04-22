@@ -21,8 +21,9 @@ function SOSButton() {
                     h-16 bg-red-700 text-xl
                     text-white font-bold text-base rounded-none
                     transition-all duration-100 ease-in-out
-                    hover:scale-110 hover:shadow-2xl hover:bg-red-600">
-            I NEED CALM NOW
+                    hover:scale-110 hover:shadow-2xl hover:bg-red-600
+                    bg-gradient-to-r from-red-500 to-rose-600 text-white font-semibold rounded-full px-6 py-3 shadow-md hover:shadow-lg hover:scale-105 transition-all">
+                    I NEED CALM NOW
         </button>
         </>
     )

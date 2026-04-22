@@ -1,6 +1,8 @@
-function CalmCard() {
+//import { getDistanceKm } from "../lib/queries.js"
+
+function CalmCard({name, tag, userLat, userLng, locLat, locLng}) {
   return (
-    <div className="m-6 w-full max-w-sm
+    <div className="m-3 w-full max-w-sm
             w-full max-w-sm mx-auto
             bg-white/70
             backdrop-blur-md
@@ -10,21 +12,29 @@ function CalmCard() {
             p-5">
 
       <p className="text-xl font-bold text-blue-900 m-2">
-        Name
+        {name}
       </p>
 
       <p className="text-xl text-gray-500 m-2">
-        x km away
+        {/* STUB */}
+        {/* getDistanceKm(userLat, userLng, locLat, locLng) */ 0} km away
       </p>
 
-      <span className="bg-teal-100 px-3 py-1 rounded-full m-1
+      <p className="text-sm text-gray-500 m-2">
+        {/* STUB */}
+        Last reported {/* getDistanceKm(userLat, userLng, locLat, locLng) */ 0} min ago
+      </p>
+
+      <span className="bg-teal-100 px-3 py-1 rounded-full mt-2
                        text-teal-800 text-xs font-medium">
-        Safe
+        {tag}
       </span>
 
       <button className="bg-teal-600 rounded
                          text-white font-semibold w-full 
-                         py-3 mt-3">
+                         py-3 mt-3
+                         transition-all duration-150
+                         hover:bg-teal-500 hover:shadow-lg hover:scale-[1.02]">
         Take Me There
       </button>
     </div>
